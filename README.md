@@ -8,7 +8,7 @@ You can access this tutorial in two ways.
 
 ### 1A. Google Colab
 
-Open a notebook in [Google Colab](https://colab.research.google.com/drive/15q2DjvF1WfUnJc6-iT78pC0nhlIgQjvk?usp=sharing). Next, make sure you have the relevant files on your instance. These should include:
+Open a notebook in [Google Colab](https://colab.research.google.com/drive/17fXgT5mXfFI_7CKvEujDwYgx3w6gyC3U?usp=sharing). Next, make sure you have the relevant files on your instance. These should include:
 
 - A folder called "data"
 - A folder called "img"
