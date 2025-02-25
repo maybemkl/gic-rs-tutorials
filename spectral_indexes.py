@@ -35,16 +35,6 @@ def return_ndwi(data: xr.Dataset) -> xr.DataArray:
     ndwi = (green - swir) / (green + swir)
     return ndwi
 
-def return_nbai(data: xr.Dataset) -> xr.DataArray:
-    """
-    Calculate and return NBAI (one common definition).
-    """
-    swir = data["swir22"].astype("float")   # e.g., band 11 for Sentinel-2
-    green = data["green"].astype("float") # e.g., band 3 for Sentinel-2
-
-    nbai = (swir - green) / (swir + green)
-    return nbai
-
 def return_nbr(data: xr.Dataset) -> xr.DataArray:
     """
     Calculate and return NBR (Normalized Burn Ratio).
@@ -55,20 +45,15 @@ def return_nbr(data: xr.Dataset) -> xr.DataArray:
     nbr = (nir - swir) / (nir + swir)
     return nbr
 
-def return_dnbr(data_pre: xr.Dataset, data_post: xr.Dataset) -> xr.DataArray:
+def return_ibi(data: xr.Dataset) -> xr.DataArray:
     """
-    Calculate and return dNBR given two datasets (pre-fire and post-fire).
+    Calculate and return the Index-based Built-up Index (IBI).
     """
-    # Calculate NBR for pre-fire
-    nir_pre = data_pre["nir"].astype("float")
-    swir_pre = data_pre["swir22"].astype("float")
-    nbr_pre = (nir_pre - swir_pre) / (nir_pre + swir_pre)
+    ndvi = (data["nir"] - data["red"]) / (data["nir"] + data["red"])
+    ndwi = (data["green"] - data["swir22"]) / (data["green"] + data["swir22"])
+    ndbi = (data["swir16"] - data["nir"]) / (data["swir16"] + data["nir"])
 
-    # Calculate NBR for post-fire
-    nir_post = data_post["nir"].astype("float")
-    swir_post = data_post["swir22"].astype("float")
-    nbr_post = (nir_post - swir_post) / (nir_post + swir_post)
+    ibi = (ndbi - (ndvi + ndwi)) / (ndbi + (ndvi + ndwi))
+    return ibi
 
-    # Differenced NBR
-    dnbr = nbr_pre - nbr_post
-    return dnbr
+
