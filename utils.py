@@ -93,21 +93,6 @@ def get_item_with_min_attribute(items:ItemSearch.items, attr:str='eo:cloud_cover
                    item.properties[attr])
     return min_item
 
-def return_ndvi(data:xr.Dataset) -> xr.DataArray:
-    """
-    Calculate and return NDVI.
-    """
-
-    # Turn red band into floats
-    red = data["red"].astype("float") 
-
-    # Turn near infrared band into floats
-    nir = data["nir"].astype("float")
-
-    # Calculate NDVI
-    ndvi = (nir - red) / (nir + red) 
-    return ndvi
-
 def load_data_from_item(item:Item, bands:List[str], bbox_poly:List[float]) -> xr.Dataset:
     """ 
     Load data from PyStac Item to xr.Dataset.
