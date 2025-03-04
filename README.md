@@ -45,3 +45,20 @@ Now you can run the notebook:
 jupyter lab 01_pystac.ipynb
 
 ```
+
+## 2. YOLOv5 for RS tutorial
+
+The Google Colab can be accessed [here](https://colab.research.google.com/drive/1g8VJ--8UkWCoVS78FkHdJDJCo-Aw79I-?usp=sharing). This time you only need the image files [here](https://www.mediafire.com/file/pst5sfdw0vj005q/img.zip/file). Otherwise you can follow the steps above, except to  do:
+
+
+```bash
+
+pip install -r 02_requirements.txt
+
+```
+
+```bash
+
+jupyter lab 02_object_detection_yolov5.ipynb
+
+```
