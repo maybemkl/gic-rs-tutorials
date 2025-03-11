@@ -62,3 +62,7 @@ pip install -r 02_requirements.txt
 jupyter lab 02_object_detection_yolov5.ipynb
 
 ```
+
+## 4. GEE for RS tutorial
+
+This week I recommend just using the Google Colab which you can access [here](https://colab.research.google.com/drive/1RoiNAhi0oHqh_37fIiUIldl0KKNzRoLO?usp=sharing)
